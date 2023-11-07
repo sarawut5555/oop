@@ -30,37 +30,38 @@ public class Circle {
         }
 
         int choice;
-        do {
+        boolean continueCalculations = true; 
+        
+        System.out.print("ระบุรัศมี: ");
+        c1.radius = Double.parseDouble(console.readLine());
+
+        while (continueCalculations) {
             System.out.println("เลือกเมนู:");
             System.out.println("1 : หาเส้นรอบวง");
             System.out.println("2 : หาพื้นที่");
             System.out.println("3 : หาปริมาตร");
             System.out.println("0 : ออกจากโปรแกรม");
+            System.out.print("กรุณาเลือก: ");
 
             choice = Integer.parseInt(console.readLine());
-
+            
             switch (choice) {
                 case 1:
-                    System.out.print("รัศมี: ");
-                    c1.radius = Double.parseDouble(console.readLine());
                     System.out.println("เส้นรอบวง = " + c1.circumference());
                     break;
                 case 2:
-                    System.out.print("รัศมี: ");
-                    c1.radius = Double.parseDouble(console.readLine());
                     System.out.println("พื้นที่ = " + c1.area());
                     break;
                 case 3:
-                    System.out.print("รัศมี: ");
-                    c1.radius = Double.parseDouble(console.readLine());
                     System.out.println("ปริมาตร = " + c1.volume());
                     break;
                 case 0:
                     System.out.println("ออกจากโปรแกรม");
+                    continueCalculations = false; 
                     break;
                 default:
                     System.out.println("Error");
             }
-        } while (choice != 0);
+        }
     }
 }
